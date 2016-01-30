@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@ComponentScan(basePackages ={  "com.niejinkun.timetable.config.service"})
+@ComponentScan(basePackages ={  "com.niejinkun.timetable.config.serviceimpl"})
 @PropertySource(value = { "classpath:conf/viaggiatreno.properties" })
 public class ViaggiatrenoConfig 
 {

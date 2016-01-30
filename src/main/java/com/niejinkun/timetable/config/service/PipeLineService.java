@@ -5,6 +5,6 @@ package com.niejinkun.timetable.config.service;
  * @author sanhao
  *
  */
-public class PipeLineService {
+public interface PipeLineService {
 
 }

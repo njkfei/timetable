@@ -5,6 +5,7 @@ package com.niejinkun.timetable.config.service;
  * @author sanhao
  *
  */
-public class DispatchService {
+public interface DispatchService {
 
+	public void dispacth();
 }

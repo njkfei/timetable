@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
+import com.niejinkun.timetable.config.TrainDataConfig;
 import com.niejinkun.timetable.config.ViaggiatrenoConfig;
 import com.niejinkun.timetable.config.model.ConnctionInfo;
 import com.niejinkun.timetable.config.model.RouteInfo;
@@ -27,7 +28,7 @@ public class App
 	private static Logger logger = Logger.getLogger(App.class);
 	public static void main( String[] args )
     {
-    	   AbstractApplicationContext  context = new AnnotationConfigApplicationContext(ViaggiatrenoConfig.class);
+    	   AbstractApplicationContext  context = new AnnotationConfigApplicationContext(ViaggiatrenoConfig.class,TrainDataConfig.class);
     	   TrainTimeTableService trainTimeTableService = (TrainTimeTableService) context.getBean("trainTimeTableService");
     	   
     	   TrainBaseInfo baseinfo = trainTimeTableService.getTrainBaseInfo("9559");
