@@ -1,11 +1,23 @@
 package com.niejinkun.timetable.config;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+
+import com.niejinkun.timetable.config.model.RouteInfo;
+import com.niejinkun.timetable.config.model.TrainBaseInfo;
+import com.niejinkun.timetable.config.model.TrainDetailInfo;
 
 @Configuration
 @ComponentScan(basePackages ={  "com.niejinkun.timetable.config.serviceimpl"})
@@ -24,4 +36,77 @@ public class ViaggiatrenoConfig
 		return new PropertySourcesPlaceholderConfigurer();
 	}
 	
+	
+	@Bean
+	public CopyOnWriteArraySet<String> trainNoSet(){
+		return new CopyOnWriteArraySet<String>();
+	}
+	
+	@Bean
+	public LinkedBlockingQueue<String> trainNoQueue(){
+		return new LinkedBlockingQueue<String>();
+	}
+	
+	@Bean
+	public CopyOnWriteArraySet<TrainBaseInfo> trainBaseInfoSet(){
+		return  new CopyOnWriteArraySet<TrainBaseInfo>();
+	}
+	
+	@Bean
+	public CopyOnWriteArraySet<TrainDetailInfo> trainDetailInfoSet(){
+		return new CopyOnWriteArraySet<TrainDetailInfo>();
+	}
+	
+	@Bean
+	public CopyOnWriteArraySet<RouteInfo> trainRouteInfoSet(){
+		return new CopyOnWriteArraySet<RouteInfo>();
+	}
+	
+	@Bean
+	public File fileTrainBase(){
+		return new File("trainbaseinfo.txt");
+	}
+	
+
+	
+	@Bean
+	public File fileTrainDetail(){
+		return new File("traindetailinfo.txt");
+	}
+	
+	@Bean
+	public File fileTrainConnection(){
+		return new File("routeinfo.txt");
+	}
+	
+	@Bean
+	public  OutputStream baseout(){
+		try {
+			return new FileOutputStream(fileTrainBase(), true);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}  
+	}
+	
+	public  OutputStream detailout(){
+		try {
+			return new FileOutputStream(fileTrainDetail(), true);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}  
+	}
+	
+	public  OutputStream routeout(){
+		try {
+			return new FileOutputStream(fileTrainConnection(), true);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}  
+	}
 }

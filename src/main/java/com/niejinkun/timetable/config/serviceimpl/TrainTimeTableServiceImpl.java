@@ -56,7 +56,7 @@ import com.niejinkun.timetable.config.service.TrainTimeTableService;
  * @author sanhao
  *
  */
-@Service("trainTimeTableServiceImpl")
+@Service("trainTimeTableService")
 public class TrainTimeTableServiceImpl implements TrainTimeTableService{
 	private static Logger logger = Logger.getLogger(TrainTimeTableServiceImpl.class);
 

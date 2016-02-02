@@ -6,5 +6,5 @@ package com.niejinkun.timetable.config.service;
  *
  */
 public interface PipeLineService {
-
+	
 }
