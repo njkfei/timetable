@@ -64,6 +64,9 @@ public class DispatchServiceImpl implements JobService {
 
 	@Autowired
 	private ConcurrentHashMap<String, Integer> trainOk;
+	
+	@Autowired
+	private ConcurrentHashMap<String,String> stationMap;
 
 	@Value("${train.seed:9559}")
 	private String seed_trainno;
@@ -188,7 +191,7 @@ public class DispatchServiceImpl implements JobService {
 	@Transactional
 	private void process(String trainno, String stationno) {
 		onNewTrain(trainno);
-
+		
 		if (existTrainOk(trainno, stationno) == true) {
 			System.out.println(" repeat train  : " + trainno + SPLIT + stationno);
 		} else {
@@ -213,6 +216,10 @@ public class DispatchServiceImpl implements JobService {
 						if (existTrainOk(trainno, item.getId()) == false) {
 
 							insertTrainOk(trainno, item.getId());
+							
+							stationMap.put(item.getId(), item.getStazione());
+							
+							onNewStation(item.getId(), item.getStazione());
 
 							System.out.println(trainno + SPLIT + item.getId());
 						}
@@ -235,7 +242,7 @@ public class DispatchServiceImpl implements JobService {
 						if (existTrainOk(item.getNumeroTreno(), item.getCodOrigine()) == false) {
 
 							insertTrainOk(item.getNumeroTreno(), item.getCodOrigine());
-
+							
 							System.out.println(item.getNumeroTreno() + SPLIT + item.getCodOrigine());
 						}
 
@@ -244,6 +251,15 @@ public class DispatchServiceImpl implements JobService {
 			}
 
 		}
+	}
+
+	private void onNewStation(String id, String stazione) {
+		if(stationMap.containsKey(id) == false){
+			stationMap.put(id, id);
+			
+			stationTrainInfoDAO.insertStation(id,stazione);
+		}
+		
 	}
 
 	public boolean existTrainOk(String trainno, String stationno) {

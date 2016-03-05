@@ -69,6 +69,11 @@ public class ViaggiatrenoConfig
 	}
 	
 	@Bean
+	public ConcurrentHashMap<String,String> stationMap(){
+		return new ConcurrentHashMap<String,String>();
+	}
+	
+	@Bean
 	public File fileTrainBase(){
 		return new File("trainbaseinfo.txt");
 	}
