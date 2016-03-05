@@ -216,9 +216,6 @@ public class DispatchServiceImpl implements JobService {
 						if (existTrainOk(trainno, item.getId()) == false) {
 
 							insertTrainOk(trainno, item.getId());
-							
-							stationMap.put(item.getId(), item.getStazione());
-							
 							onNewStation(item.getId(), item.getStazione());
 
 							System.out.println(trainno + SPLIT + item.getId());
@@ -255,7 +252,7 @@ public class DispatchServiceImpl implements JobService {
 
 	private void onNewStation(String id, String stazione) {
 		if(stationMap.containsKey(id) == false){
-			stationMap.put(id, id);
+			stationMap.put(id, stazione);
 			
 			stationTrainInfoDAO.insertStation(id,stazione);
 		}
