@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-import com.niejinkun.timetable.config.model.RouteInfo;
-import com.niejinkun.timetable.config.model.TrainBaseInfo;
-import com.niejinkun.timetable.config.model.TrainDetailInfo;
+import com.niejinkun.timetable.model.RouteInfo;
+import com.niejinkun.timetable.model.TrainBaseInfo;
+import com.niejinkun.timetable.model.TrainDetailInfo;
 
 /**
  * 列车数据实体

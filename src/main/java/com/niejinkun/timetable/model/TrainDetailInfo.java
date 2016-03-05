@@ -1,6 +1,4 @@
-package com.niejinkun.timetable.config.model;
-
-import org.apache.log4j.Logger;
+package com.niejinkun.timetable.model;
 
 /**
  * 车次详细信息

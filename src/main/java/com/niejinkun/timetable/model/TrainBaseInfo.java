@@ -1,6 +1,10 @@
-package com.niejinkun.timetable.config.model;
+package com.niejinkun.timetable.model;
 
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.niejinkun.timetable.serviceimpl.DispatchServiceImpl;
+
+import ch.qos.logback.classic.Logger;
 
 /**
  * 车站基本信息
@@ -8,7 +12,7 @@ import org.apache.log4j.Logger;
  *　demo: 9559 - TORINO PORTA NUOVA|9559-S00219
  */
 public class TrainBaseInfo {
-	private static Logger logger = Logger.getLogger(TrainBaseInfo.class);
+	static Logger logger = (Logger) LoggerFactory.getLogger(DispatchServiceImpl.class);
 	private String train_no;
 	private String station;
 	private String station_no;

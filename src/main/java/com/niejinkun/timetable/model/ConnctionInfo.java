@@ -1,6 +1,4 @@
-package com.niejinkun.timetable.config.model;
-
-import org.apache.log4j.Logger;
+package com.niejinkun.timetable.model;
 
 /**
  * 车站中转信息
@@ -8,18 +6,12 @@ import org.apache.log4j.Logger;
  *　demo: numeroTreno: 4332, categoria: "REG", categoriaDescrizione: null, origine: null, codOrigine: "S00219"
  */
 public class ConnctionInfo {
-	private static Logger logger = Logger.getLogger(ConnctionInfo.class);
 	private String numeroTreno; // 车次号
 	private String categoria; // 列车类型
 	private String codOrigine; // 发站编号
 	private String compOrarioPartenza; // 发车时间
 	private long orarioPartenza; // 发车时间
-	public static Logger getLogger() {
-		return logger;
-	}
-	public static void setLogger(Logger logger) {
-		ConnctionInfo.logger = logger;
-	}
+
 	public String getNumeroTreno() {
 		return numeroTreno;
 	}

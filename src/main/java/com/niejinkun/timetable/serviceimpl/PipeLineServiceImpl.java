@@ -1,4 +1,4 @@
-package com.niejinkun.timetable.config.serviceimpl;
+package com.niejinkun.timetable.serviceimpl;
 
 /**
  * 存储服务

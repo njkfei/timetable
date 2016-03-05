@@ -1,12 +1,12 @@
-package com.niejinkun.timetable.config.service;
+package com.niejinkun.timetable.service;
 
 
 import java.util.List;
 
-import com.niejinkun.timetable.config.model.ConnctionInfo;
-import com.niejinkun.timetable.config.model.RouteInfo;
-import com.niejinkun.timetable.config.model.TrainBaseInfo;
-import com.niejinkun.timetable.config.model.TrainDetailInfo;
+import com.niejinkun.timetable.model.ConnctionInfo;
+import com.niejinkun.timetable.model.RouteInfo;
+import com.niejinkun.timetable.model.TrainBaseInfo;
+import com.niejinkun.timetable.model.TrainDetailInfo;
 
 /**
  * 情感api
