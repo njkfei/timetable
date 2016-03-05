@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.fastjson.JSON;
+import com.niejinkun.timetable.dao.StationTrainInfoDAO;
 import com.niejinkun.timetable.dao.TrainBaseInfoDAO;
 import com.niejinkun.timetable.dao.TrainDetailInfoDAO;
 import com.niejinkun.timetable.dao.TrainRouteInfoDAO;
@@ -85,7 +86,12 @@ public class DispatchServiceImpl implements JobService {
 	private TrainDetailInfoDAO trainDetailInfoDAO;
 
 	@Autowired
+	private StationTrainInfoDAO stationTrainInfoDAO; 
+	
+	@Autowired
 	private TrainRouteInfoDAO trainRouteInfoDAO;
+	
+	
 
 	@Value("${pool.size:16}")
 	private int pool_size;
@@ -274,6 +280,8 @@ public class DispatchServiceImpl implements JobService {
 		String key = trainno + SPLIT + stationno;
 
 		trainOk.put(key, 1);
+		
+		stationTrainInfoDAO.insert(trainno,stationno);
 
 		return true;
 	}
